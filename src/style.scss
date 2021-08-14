@@ -1,5 +1,6 @@
 :root {
   --pavers-blue: #004d71;
+  --pavers-blue-highlight: #0076ad;
   --sale-red: #cd092d;
 }
 
@@ -27,9 +28,77 @@ body {
   color: #333;
 }
 
+button {
+  background-color: var(--pavers-blue);
+  color: #fff;
+  border: none;
+  padding: 1rem 0;
+  font-family: inherit;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background-color: var(--pavers-blue-highlight);
+  }
+}
+
 .header {
   background-color: var(--pavers-blue);
   padding: 2rem;
   display: flex;
   justify-content: center;
+}
+
+.main-content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    width: 100%;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid #333;
+      border-radius: 5px;
+      padding: 2rem;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    label {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    input[type='text'],
+    input[type='email'] {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+
+    input[type='date'] {
+      display: inline;
+      font-family: inherit;
+      width: 50%;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+  }
 }

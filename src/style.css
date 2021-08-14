@@ -1,5 +1,6 @@
 :root {
   --pavers-blue: #004d71;
+  --pavers-blue-highlight: #0076ad;
   --sale-red: #cd092d;
 }
 
@@ -28,6 +29,23 @@ body {
   color: #333;
 }
 
+button {
+  background-color: var(--pavers-blue);
+  color: #fff;
+  border: none;
+  padding: 1rem 0;
+  font-family: inherit;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+button:hover {
+  background-color: var(--pavers-blue-highlight);
+}
+
 .header {
   background-color: var(--pavers-blue);
   padding: 2rem;
@@ -37,5 +55,74 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.main-content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
+}
+
+.main-content h2 {
+  margin-bottom: 2rem;
+}
+
+.main-content .contact-form {
+  width: 100%;
+}
+
+.main-content .contact-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.main-content .contact-form form .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.main-content .contact-form label {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.main-content .contact-form input[type='text'],
+.main-content .contact-form input[type='email'] {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.main-content .contact-form input[type='date'] {
+  display: inline;
+  font-family: inherit;
+  width: 50%;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */
