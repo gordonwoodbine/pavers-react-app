@@ -112,6 +112,10 @@ button:hover {
   font-size: 1rem;
 }
 
+.main-content .contact-form input {
+  outline-color: var(--pavers-blue-highlight);
+}
+
 .main-content .contact-form input[type='text'],
 .main-content .contact-form input[type='email'] {
   font-size: 1rem;
@@ -124,5 +128,19 @@ button:hover {
   width: 50%;
   font-size: 1rem;
   padding: 0.5rem;
+}
+
+.main-content .contact-form textarea {
+  height: 100px;
+  resize: none;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline-color: var(--pavers-blue-highlight);
+}
+
+.char-count {
+  margin-top: 0.3rem;
+  text-align: right;
 }
 /*# sourceMappingURL=style.css.map */

@@ -87,6 +87,10 @@ button {
       font-size: 1rem;
     }
 
+    input {
+      outline-color: var(--pavers-blue-highlight);
+    }
+
     input[type='text'],
     input[type='email'] {
       font-size: 1rem;
@@ -102,11 +106,17 @@ button {
     }
 
     textarea {
-      height: 150px;
+      height: 100px;
       resize: none;
       font-family: inherit;
       font-size: 1rem;
       padding: 0.5rem;
+      outline-color: var(--pavers-blue-highlight);
     }
   }
+}
+
+.char-count {
+  margin-top: 0.3rem;
+  text-align: right;
 }

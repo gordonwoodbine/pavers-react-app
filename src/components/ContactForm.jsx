@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import FormInput from './FormInput';
+import FormTextArea from './FormTextArea';
+//import axios from 'axios';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -9,8 +11,11 @@ const ContactForm = () => {
   const [reasonForApp, setReasonForApp] = useState('');
   const [paversKnowledge, setPaversKnowledge] = useState('');
   const [imageFile, setImageFile] = useState(null);
-  const url = 'https://staging.interview-api.paversdev.co.uk/upload';
+  //const url = 'https://staging.interview-api.paversdev.co.uk/upload';
 
+  /* 
+    Yes, I know this is a hack but I didn't want to import moment.js just to do this one thing... 
+  */
   function dateFormatter(date) {
     return date
       .toLocaleDateString()
@@ -40,64 +45,62 @@ const ContactForm = () => {
 
   return (
     <div className='contact-form'>
-      <form onSubmit={(e) => formSubmit(e)}>
-        <div className='form-group'>
-          <label>Name:</label>
-          <input
-            type='text'
-            placeholder='John Doe'
-            maxLength='50'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='email'>Email Address:</label>
-          <input
-            type='email'
-            placeholder='john.doe@pavers.co.uk'
-            maxLength='100'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className='form-group'>
-          <label>Application Date:</label>
-          <input
-            type='date'
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-        <div className='form-group'>
-          <label>About You:</label>
-          <textarea
-            value={aboutYou}
-            onChange={(e) => setAboutYou(e.target.value)}
-            placeholder='Tell us a little bit about yourself...'
-            required
-          ></textarea>
-        </div>
-        <div className='form-group'>
-          <label>Reason for Applying:</label>
-          <textarea
-            value={reasonForApp}
-            onChange={(e) => setReasonForApp(e.target.value)}
-            placeholder='What made you want to apply for this job?'
-            required
-          ></textarea>
-        </div>
-        <div className='form-group'>
-          <label>What You Know About Pavers:</label>
-          <textarea
-            value={paversKnowledge}
-            onChange={(e) => setPaversKnowledge(e.target.value)}
-            placeholder='What do you already know about the company?'
-            required
-          ></textarea>
-        </div>
+      <form onSubmit={(e) => formSubmit(e)} encType='multipart/form-data'>
+        <FormInput
+          label='* Name:'
+          type='text'
+          placeholder='John Doe'
+          maxLength='50'
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required={true}
+        />
+
+        <FormInput
+          label='* Email Address:'
+          type='email'
+          placeholder='john.doe@pavers.co.uk'
+          maxLength='50'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required={true}
+        />
+
+        <FormInput
+          label='* Application Date'
+          type='date'
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required={true}
+        />
+
+        <FormTextArea
+          label='* About You:'
+          value={aboutYou}
+          onChange={(e) => setAboutYou(e.target.value)}
+          placeholder='Tell us a little bit about yourself...'
+          required={true}
+          maxLength='255'
+        />
+
+        <FormTextArea
+          label='* Reason for Applying:'
+          value={reasonForApp}
+          onChange={(e) => setReasonForApp(e.target.value)}
+          placeholder='What made you want to apply for this job?'
+          required={true}
+          maxLength='255'
+        />
+
+        <FormTextArea
+          label='* What You Know About Pavers:'
+          value={paversKnowledge}
+          onChange={(e) => setPaversKnowledge(e.target.value)}
+          placeholder='What do you already know about the company?'
+          required={true}
+          maxLength='255'
+        />
+
         <div className='form-group'>
           <label>Upload Picture</label>
           <input
