@@ -2,6 +2,11 @@
   --pavers-blue: #004d71;
   --pavers-blue-highlight: #0076ad;
   --sale-red: #cd092d;
+  --img-max: 250px;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 * {
@@ -35,7 +40,7 @@ button {
   border: none;
   padding: 1rem 0;
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   margin-top: 1rem;
   cursor: pointer;
   -webkit-transition: all 0.4s ease;
@@ -75,12 +80,18 @@ button:hover {
   padding: 0 1rem;
 }
 
+.main-content p {
+  font-size: 1.6rem;
+}
+
 .main-content h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
 }
 
 .main-content .contact-form {
   width: 100%;
+  margin-top: 1rem;
 }
 
 .main-content .contact-form form {
@@ -109,7 +120,7 @@ button:hover {
 
 .main-content .contact-form label {
   margin: 0.5rem 0;
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
 .main-content .contact-form input {
@@ -118,7 +129,7 @@ button:hover {
 
 .main-content .contact-form input[type='text'],
 .main-content .contact-form input[type='email'] {
-  font-size: 1rem;
+  font-size: 1.6rem;
   padding: 0.5rem;
 }
 
@@ -126,7 +137,7 @@ button:hover {
   display: inline;
   font-family: inherit;
   width: 50%;
-  font-size: 1rem;
+  font-size: 1.6rem;
   padding: 0.5rem;
 }
 
@@ -134,7 +145,7 @@ button:hover {
   height: 100px;
   resize: none;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.6rem;
   padding: 0.5rem;
   outline-color: var(--pavers-blue-highlight);
 }
@@ -142,5 +153,32 @@ button:hover {
 .char-count {
   margin-top: 0.3rem;
   text-align: right;
+}
+
+#file-img-preview {
+  max-height: var(--img-max);
+  border-radius: 25px;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.form-input {
+  height: var(--img-max);
+  padding: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.form-input input {
+  display: none;
+}
+
+.form-input label {
+  cursor: pointer;
+  display: block;
+  height: var(--img-max);
+  width: auto;
+  max-height: 100px;
 }
 /*# sourceMappingURL=style.css.map */

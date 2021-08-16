@@ -2,6 +2,11 @@
   --pavers-blue: #004d71;
   --pavers-blue-highlight: #0076ad;
   --sale-red: #cd092d;
+  --img-max: 150px;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 * {
@@ -34,7 +39,7 @@ button {
   border: none;
   padding: 1rem 0;
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   margin-top: 1rem;
   cursor: pointer;
   transition: all 0.4s ease;
@@ -61,12 +66,18 @@ button {
   align-items: center;
   padding: 0 1rem;
 
+  p {
+    font-size: 1.6rem;
+  }
+
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
   }
 
   .contact-form {
     width: 100%;
+    margin-top: 1rem;
 
     form {
       display: flex;
@@ -84,7 +95,7 @@ button {
 
     label {
       margin: 0.5rem 0;
-      font-size: 1rem;
+      font-size: 1.6rem;
     }
 
     input {
@@ -93,7 +104,7 @@ button {
 
     input[type='text'],
     input[type='email'] {
-      font-size: 1rem;
+      font-size: 1.6rem;
       padding: 0.5rem;
     }
 
@@ -101,7 +112,7 @@ button {
       display: inline;
       font-family: inherit;
       width: 50%;
-      font-size: 1rem;
+      font-size: 1.6rem;
       padding: 0.5rem;
     }
 
@@ -109,7 +120,7 @@ button {
       height: 100px;
       resize: none;
       font-family: inherit;
-      font-size: 1rem;
+      font-size: 1.6rem;
       padding: 0.5rem;
       outline-color: var(--pavers-blue-highlight);
     }
@@ -119,4 +130,29 @@ button {
 .char-count {
   margin-top: 0.3rem;
   text-align: right;
+}
+
+#file-img-preview {
+  max-height: var(--img-max);
+  border-radius: 25px;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.form-input {
+  height: var(--img-max);
+  padding: 3px;
+  margin-bottom: 2rem;
+
+  input {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    display: block;
+    height: var(--img-max);
+    width: auto;
+    max-height: 100px;
+  }
 }

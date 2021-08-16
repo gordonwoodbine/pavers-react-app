@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
+import FormImageUpload from './FormImageUpload';
 //import axios from 'axios';
 
 const ContactForm = () => {
@@ -10,7 +11,7 @@ const ContactForm = () => {
   const [aboutYou, setAboutYou] = useState('');
   const [reasonForApp, setReasonForApp] = useState('');
   const [paversKnowledge, setPaversKnowledge] = useState('');
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState('');
   //const url = 'https://staging.interview-api.paversdev.co.uk/upload';
 
   /* 
@@ -41,6 +42,22 @@ const ContactForm = () => {
     console.log(typeof applicant.file);
 
     //axios.post(url, applicant).then((res) => console.log(res));
+  };
+
+  const showPreview = (e) => {
+    if (e.target.files.length > 0) {
+      let src = URL.createObjectURL(e.target.files[0]);
+      let preview = document.getElementById('file-img-preview');
+      preview.src = src;
+      console.log(src);
+
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        setImageFile(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -101,19 +118,35 @@ const ContactForm = () => {
           maxLength='255'
         />
 
-        <div className='form-group'>
-          <label>Upload Picture</label>
-          <input
-            id='file'
-            type='file'
-            accept='image/*'
-            onChange={(e) =>
-              setImageFile(
-                URL.createObjectURL(document.getElementById('file').files[0])
-              )
-            }
-          />
-        </div>
+        <FormImageUpload
+          label='Upload a Picture:'
+          imgId='file-img-preview'
+          src='assets/default2.png'
+          alt='profile picture'
+          type='file'
+          inputId='file-ip'
+          onChange={(e) => showPreview(e)}
+        />
+
+        {/* <div className='form-group'>
+          <label>Upload a Picture:</label>
+
+          <div className='form-input'>
+            <label htmlFor='file-ip'>
+              <img
+                id='file-img-preview'
+                src='assets/default2.png'
+                alt='profile'
+              />
+            </label>
+            <input
+              type='file'
+              id='file-ip'
+              accept='image/*'
+              onChange={(e) => showPreview(e)}
+            />
+          </div>
+        </div> */}
 
         <button type='submit'>Submit</button>
       </form>

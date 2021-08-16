@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div className='header'>
-      <img src='logo.png' alt='pavers logo' />
+      <img src='assets/logo.png' alt='pavers logo' />
     </div>
   );
 };
