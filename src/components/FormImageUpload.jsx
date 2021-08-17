@@ -9,13 +9,25 @@ const FormImageUpload = ({
 }) => {
   return (
     <div className='form-group'>
-      <label>{label}</label>
+      {/* <label>{label}</label> */}
 
-      <div className='form-input'>
-        <label htmlFor={inputId}>
-          <img id={imgId} src={src} alt={alt} />
-        </label>
-        <input type={type} id={inputId} accept='image/*' onChange={onChange} />
+      <div className='img-upload'>
+        <img src='assets/default.jpg' alt='profile preview' id={imgId} />
+        <div className='upload-text'>
+          <h3>Upload a Profile Picture</h3>
+          <label htmlFor='profile-img'>
+            <input
+              type='file'
+              id='profile-img'
+              accept='image/*'
+              onChange={onChange}
+            />
+            <span>Select Image</span>
+          </label>
+          <p>
+            <em>Square images tend to work best</em>
+          </p>
+        </div>
       </div>
     </div>
   );

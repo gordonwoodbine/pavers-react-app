@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormImageUpload from './FormImageUpload';
-//import axios from 'axios';
+import axios from 'axios';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -12,7 +12,7 @@ const ContactForm = () => {
   const [reasonForApp, setReasonForApp] = useState('');
   const [paversKnowledge, setPaversKnowledge] = useState('');
   const [imageFile, setImageFile] = useState('');
-  //const url = 'https://staging.interview-api.paversdev.co.uk/upload';
+  const url = 'https://staging.interview-api.paversdev.co.uk/upload';
 
   /* 
     Yes, I know this is a hack but I didn't want to import moment.js just to do this one thing... 
@@ -39,9 +39,8 @@ const ContactForm = () => {
     };
 
     console.log(applicant);
-    console.log(typeof applicant.file);
 
-    //axios.post(url, applicant).then((res) => console.log(res));
+    axios.post(url, applicant).then((res) => console.log(res));
   };
 
   const showPreview = (e) => {
@@ -49,14 +48,14 @@ const ContactForm = () => {
       let src = URL.createObjectURL(e.target.files[0]);
       let preview = document.getElementById('file-img-preview');
       preview.src = src;
-      console.log(src);
+      setImageFile(src);
 
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        setImageFile(reader.result);
-      };
-      reader.readAsDataURL(file);
+      // const file = e.target.files[0];
+      // const reader = new FileReader();
+      // reader.onloadend = function () {
+      //   setImageFile(reader.result);
+      // };
+      // reader.readAsDataURL(file);
     }
   };
 
