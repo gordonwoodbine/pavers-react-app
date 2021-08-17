@@ -48,14 +48,14 @@ const ContactForm = () => {
       let src = URL.createObjectURL(e.target.files[0]);
       let preview = document.getElementById('file-img-preview');
       preview.src = src;
-      setImageFile(src);
+      //setImageFile(src);
 
-      // const file = e.target.files[0];
-      // const reader = new FileReader();
-      // reader.onloadend = function () {
-      //   setImageFile(reader.result);
-      // };
-      // reader.readAsDataURL(file);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        setImageFile(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
