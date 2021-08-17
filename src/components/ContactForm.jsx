@@ -120,10 +120,10 @@ const ContactForm = () => {
         <FormImageUpload
           label='Upload a Picture:'
           imgId='file-img-preview'
-          src='assets/default2.png'
-          alt='profile picture'
+          src='assets/default.jpg'
+          alt='profile preview'
           type='file'
-          inputId='file-ip'
+          inputId='profile-img'
           onChange={(e) => showPreview(e)}
         />
 

@@ -1,8 +1,15 @@
+/**********************************
+**  Global-ish Stuff and Resets  **
+***********************************/
+
 :root {
   --pavers-blue: #004d71;
-  --pavers-blue-highlight: #0076ad;
+  --pavers-blue-highlight: #0084c2;
   --sale-red: #cd092d;
+  --bg-color: #fff;
+  --main-color: #333;
   --img-max: 150px;
+  --std-font-size: 1.6rem;
 }
 
 @mixin small-screen {
@@ -32,11 +39,12 @@ ul {
   font-family: 'PT Sans', sans-serif;
   text-decoration: none;
   list-style-type: none;
+  font-size: var(--std-font-size);
 }
 
 body {
-  background-color: white;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--main-color);
 }
 
 button {
@@ -54,6 +62,10 @@ button {
     background-color: var(--pavers-blue-highlight);
   }
 }
+
+/***********************
+**       Header       **
+************************/
 
 .header {
   background-color: var(--pavers-blue);
@@ -73,7 +85,6 @@ button {
   padding: 0 1rem;
 
   p {
-    font-size: 1.6rem;
     margin-bottom: 1rem;
   }
 
@@ -106,16 +117,11 @@ button {
 
     label {
       margin: 0.5rem 0;
-      font-size: 1.6rem;
     }
 
     input {
       outline-color: var(--pavers-blue-highlight);
-    }
-
-    input[type='text'],
-    input[type='email'] {
-      font-size: 1.6rem;
+      font-size: inherit;
       padding: 0.5rem;
     }
 
@@ -123,15 +129,13 @@ button {
       display: inline;
       font-family: inherit;
       width: 50%;
-      font-size: 1.6rem;
-      padding: 0.5rem;
     }
 
     textarea {
       height: 100px;
       resize: none;
       font-family: inherit;
-      font-size: 1.6rem;
+      font-size: inherit;
       padding: 0.5rem;
       outline-color: var(--pavers-blue-highlight);
 
@@ -170,10 +174,6 @@ button {
     > * {
       margin: 1rem 0;
     }
-  }
-
-  h3 {
-    font-size: 1.6rem;
   }
 
   input {
