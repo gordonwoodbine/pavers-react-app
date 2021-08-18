@@ -45,9 +45,22 @@ ul {
 body {
   background-color: var(--bg-color);
   color: var(--main-color);
+  height: 100vh;
 }
 
-button {
+.btn {
+  background-color: var(--pavers-blue);
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  border-radius: 5px;
+
+  &__warning {
+    background-color: var(--sale-red);
+  }
+}
+
+.submit-btn {
   background-color: var(--pavers-blue);
   color: #fff;
   border: none;
@@ -74,6 +87,19 @@ button {
   justify-content: center;
 }
 
+/**************************************
+** Styles for the main page sections **
+**************************************/
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .main-content {
   max-width: 800px;
   margin-left: auto;
@@ -83,6 +109,7 @@ button {
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
+  flex: 1;
 
   p {
     margin-bottom: 1rem;
@@ -146,10 +173,15 @@ button {
   }
 }
 
+// part of the textarea component
 .char-count {
   margin-top: 0.3rem;
   text-align: right;
 }
+
+/**************************************
+** Styles for image upload component **
+***************************************/
 
 .img-upload {
   display: flex;
@@ -171,20 +203,44 @@ button {
     align-items: flex-start;
     justify-content: center;
 
+    // target all children of .upload-text
     > * {
       margin: 1rem 0;
     }
   }
 
+  // hide the default HTML file upload ...
   input {
     display: none;
   }
 
+  // ... and style it with the label instead :)
   label {
     cursor: pointer;
     background-color: var(--pavers-blue);
     color: #fff;
     padding: 1rem 2rem;
     display: inline-block;
+  }
+}
+
+/***********************************
+** Styles for Success/Error pages **
+************************************/
+
+.result-page {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: -1rem;
+
+  & > * {
+    margin: 1rem 0;
+  }
+
+  h1 {
+    font-size: 3rem;
   }
 }

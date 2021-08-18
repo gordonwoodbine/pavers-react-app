@@ -1,6 +1,6 @@
 import ContactForm from '../components/ContactForm';
 
-const ApplicationForm = () => {
+const ApplicationForm = ({ setFormComplete }) => {
   return (
     <>
       <h2>Pavers React Developer Application Form</h2>
@@ -8,7 +8,7 @@ const ApplicationForm = () => {
         Please fill in the form below. Note, any fields marked with an * are
         required. Good luck in your application!
       </p>
-      <ContactForm />
+      <ContactForm setFormComplete={setFormComplete} />
     </>
   );
 };

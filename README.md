@@ -2,20 +2,21 @@
 
 **Live Version:** [https://tender-noether-a94d5c.netlify.app/](https://tender-noether-a94d5c.netlify.app/)
 
+![Cover Image](./cover.png)
+
 This is my first attempt, optimistically codenamed "Let's just get the damn thing to work, shall we?"
 
 ## Still To Do
 
-- [] Tidy up scss file
+- [x] Tidy up scss file
 - [] Add router and route to success/error page on form submission
-- [] Write up full notes
-- [] Maybe do some extra validation on inputs, eg. regex for alphanumeric only
+- [x] Write up full notes
 
   - ~~Thought process behind scss/modules/styled components~~
   - ~~Why I'm not using Redux~~
-  - Areas for improvement
+  - ~~Areas for improvement~~
 
-- [] Embed ContactForm component into a page
+- [x] Embed ContactForm component into a page
 
 ## Design Decisions
 
@@ -34,3 +35,15 @@ As the authors of redux-form put it, "The only good reason, in the author's view
 Making what I think is the fairly safe assumption that these people know quite a bit more than I do about this, I have chosen not to use Redux in this project.
 
 (Honestly, this is not just an excuse to get out of learning Redux - it's next on the list)
+
+### What I would do differently/plans for improvements
+
+#### Validation
+
+Currently, I'm just using HTML to validate the inputs to make sure they're not empty and of the right type. I would like to improve this.
+
+There is a React library called Yup which seems like a good way of doing validation so for version 2 of this project, I'm going to look into that. I'd also quite like to have a play with a couple of React form libraries as these might well help me to tidy up the code.
+
+#### CORS issue
+
+As you'll be able to see from the commented out block of code in the `showPreview` function in the ContactFrom component, I tried converting the uploaded image to a Base64 string and sending that along to the server. This resulted in a CORS error. Having had to try to resolve a CORS issue before, and knowing just how long it took me, I decided, for now, to ignore the hell out of it and just send the image blob url as a string instead. Obviously, I would like to fix this for V2.

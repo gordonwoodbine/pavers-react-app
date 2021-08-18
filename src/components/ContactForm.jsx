@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormImageUpload from './FormImageUpload';
 import axios from 'axios';
 
-const ContactForm = () => {
+const ContactForm = ({ setFormComplete }) => {
+  const history = useHistory();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState(dateFormatter(new Date()));
@@ -38,9 +41,17 @@ const ContactForm = () => {
       file: imageFile,
     };
 
-    console.log(applicant);
+    //console.log(applicant);
 
-    axios.post(url, applicant).then((res) => console.log(res));
+    axios.post(url, applicant).then((res) => {
+      if (res.status === 200) {
+        setFormComplete('success');
+        history.push('/success');
+      } else {
+        setFormComplete('error');
+        history.push('/error');
+      }
+    });
   };
 
   const showPreview = (e) => {
@@ -49,6 +60,8 @@ const ContactForm = () => {
       let preview = document.getElementById('file-img-preview');
       preview.src = src;
       setImageFile(src);
+
+      /* I was trying to convert the image into base64 and send it to the server but this gave me a CORS error. While I'm pretty confident that, given time, I could resolve this, I decided, for now, to focus on other things. */
 
       // const file = e.target.files[0];
       // const reader = new FileReader();
@@ -127,27 +140,9 @@ const ContactForm = () => {
           onChange={(e) => showPreview(e)}
         />
 
-        {/* <div className='form-group'>
-          <label>Upload a Picture:</label>
-
-          <div className='form-input'>
-            <label htmlFor='file-ip'>
-              <img
-                id='file-img-preview'
-                src='assets/default2.png'
-                alt='profile'
-              />
-            </label>
-            <input
-              type='file'
-              id='file-ip'
-              accept='image/*'
-              onChange={(e) => showPreview(e)}
-            />
-          </div>
-        </div> */}
-
-        <button type='submit'>Submit</button>
+        <button className='submit-btn' type='submit'>
+          Submit
+        </button>
       </form>
     </div>
   );
