@@ -1,5 +1,3 @@
-import { set } from 'harmony-reflect';
-import { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import ApplicationForm from './views/ApplicationForm';
