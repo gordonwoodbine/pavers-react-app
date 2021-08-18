@@ -9,7 +9,7 @@ This is my first attempt, optimistically codenamed "Let's just get the damn thin
 ## Still To Do
 
 - [x] Tidy up scss file
-- [] Add router and route to success/error page on form submission
+- [x] Add router and route to success/error page on form submission
 - [x] Write up full notes
 
   - ~~Thought process behind scss/modules/styled components~~
@@ -47,3 +47,9 @@ There is a React library called Yup which seems like a good way of doing validat
 #### CORS issue
 
 As you'll be able to see from the commented out block of code in the `showPreview` function in the ContactFrom component, I tried converting the uploaded image to a Base64 string and sending that along to the server. This resulted in a CORS error. Having had to try to resolve a CORS issue before, and knowing just how long it took me, I decided, for now, to ignore the hell out of it and just send the image blob url as a string instead. Obviously, I would like to fix this for V2.
+
+#### Form Submission
+
+This doesn't really need to be two separate pages for success and error, I think it would be better to use a single component and pass the data through as props. Which I would probably have done if I wasn't a little tired right now.
+
+It might even be better just to have a model that gives feedback on the status of the request. Again, I'll play around with this in V2.

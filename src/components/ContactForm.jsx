@@ -15,6 +15,7 @@ const ContactForm = () => {
   const [reasonForApp, setReasonForApp] = useState('');
   const [paversKnowledge, setPaversKnowledge] = useState('');
   const [imageFile, setImageFile] = useState('');
+
   const url = 'https://staging.interview-api.paversdev.co.uk/upload';
 
   /* 
