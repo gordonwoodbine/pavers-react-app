@@ -1,4 +1,5 @@
 const FormInput = ({
+  id,
   label,
   type,
   placeholder,
@@ -9,8 +10,9 @@ const FormInput = ({
 }) => {
   return (
     <div className='form-group'>
-      <label>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input
+        id={id}
         type={type}
         placeholder={placeholder}
         maxLength={maxLength}

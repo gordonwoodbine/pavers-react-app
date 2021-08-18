@@ -1,4 +1,5 @@
 const FormTextArea = ({
+  id,
   label,
   placeholder,
   maxLength,
@@ -8,8 +9,9 @@ const FormTextArea = ({
 }) => {
   return (
     <div className='form-group'>
-      <label>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <textarea
+        id={id}
         className='textarea'
         placeholder={placeholder}
         maxLength={maxLength}

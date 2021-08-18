@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import FormInput from './FormInput';
 import FormTextArea from './FormTextArea';
 import FormImageUpload from './FormImageUpload';
-import axios from 'axios';
 
 const ContactForm = () => {
   const history = useHistory();
@@ -28,6 +28,18 @@ const ContactForm = () => {
       .reverse()
       .join('-');
   }
+
+  /*
+    Again, I know lodash has a unique id function but I didn't want to import it just for that. So I stole this function that I found on the internet. 
+  */
+  const uniqueId = (function () {
+    let num = 0;
+    return function (prefix) {
+      prefix = String(prefix) || '';
+      num += 1;
+      return prefix + num;
+    };
+  })();
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -74,6 +86,7 @@ const ContactForm = () => {
     <div className='contact-form'>
       <form onSubmit={(e) => formSubmit(e)} encType='multipart/form-data'>
         <FormInput
+          id={uniqueId('id_')}
           label='* Name:'
           type='text'
           placeholder='John Doe'
@@ -84,6 +97,7 @@ const ContactForm = () => {
         />
 
         <FormInput
+          id={uniqueId('id_')}
           label='* Email Address:'
           type='email'
           placeholder='john.doe@pavers.co.uk'
@@ -94,6 +108,7 @@ const ContactForm = () => {
         />
 
         <FormInput
+          id={uniqueId('id_')}
           label='* Application Date'
           type='date'
           value={date}
@@ -102,6 +117,7 @@ const ContactForm = () => {
         />
 
         <FormTextArea
+          id={uniqueId('id_')}
           label='* About You:'
           value={aboutYou}
           onChange={(e) => setAboutYou(e.target.value)}
@@ -111,6 +127,7 @@ const ContactForm = () => {
         />
 
         <FormTextArea
+          id={uniqueId('id_')}
           label='* Reason for Applying:'
           value={reasonForApp}
           onChange={(e) => setReasonForApp(e.target.value)}
@@ -120,6 +137,7 @@ const ContactForm = () => {
         />
 
         <FormTextArea
+          id={uniqueId('id_')}
           label='* What You Know About Pavers:'
           value={paversKnowledge}
           onChange={(e) => setPaversKnowledge(e.target.value)}
@@ -138,7 +156,7 @@ const ContactForm = () => {
           onChange={(e) => showPreview(e)}
         />
 
-        <button className='submit-btn' type='submit'>
+        <button className='btn submit-btn' type='submit'>
           Submit
         </button>
       </form>
