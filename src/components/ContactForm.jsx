@@ -56,13 +56,18 @@ const ContactForm = () => {
 
     //console.log(applicant);
 
-    axios.post(url, applicant).then((res) => {
-      if (res.status === 200) {
-        history.push('/success');
-      } else {
+    axios
+      .post(url, applicant)
+      .then((res) => {
+        if (res.status === 200) {
+          history.push('/success');
+        } else {
+          history.push('/error');
+        }
+      })
+      .catch((err) => {
         history.push('/error');
-      }
-    });
+      });
   };
 
   const showPreview = (e) => {
