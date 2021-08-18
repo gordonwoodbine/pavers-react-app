@@ -7,15 +7,13 @@ import Success from './views/Success';
 import Error from './views/Error';
 
 const App = () => {
-  const [formComplete, setFormComplete] = useState('');
-
   return (
     <div className='app'>
       <Header />
       <main className='main-content'>
         <Switch>
           <Route exact path='/'>
-            <ApplicationForm setFormComplete={setFormComplete} />
+            <ApplicationForm />
           </Route>
           <Route path='/success'>
             <Success />

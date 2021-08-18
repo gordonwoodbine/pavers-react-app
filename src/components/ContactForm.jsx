@@ -5,7 +5,7 @@ import FormTextArea from './FormTextArea';
 import FormImageUpload from './FormImageUpload';
 import axios from 'axios';
 
-const ContactForm = ({ setFormComplete }) => {
+const ContactForm = () => {
   const history = useHistory();
 
   const [name, setName] = useState('');
@@ -45,10 +45,8 @@ const ContactForm = ({ setFormComplete }) => {
 
     axios.post(url, applicant).then((res) => {
       if (res.status === 200) {
-        setFormComplete('success');
         history.push('/success');
       } else {
-        setFormComplete('error');
         history.push('/error');
       }
     });
